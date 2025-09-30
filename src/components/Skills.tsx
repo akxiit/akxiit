@@ -30,35 +30,63 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="py-20 bg-background relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(var(--primary))_1px,transparent_1px)] bg-[size:3rem_3rem]" />
+      </div>
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float-delayed" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-fade-in-up">
-            Skills & Expertise
-          </h2>
-          <p className="text-center text-muted-foreground text-lg mb-12">
-            Technologies and tools I use to transform data into insights
-          </p>
+          {/* Section Header */}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="inline-block mb-4">
+              <span className="text-primary font-semibold tracking-wider uppercase text-sm">My Toolkit</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Skills & Expertise
+            </h2>
+            <div 
+              className="h-1 w-24 mx-auto rounded-full mb-4"
+              style={{ background: "var(--gradient-hero)" }}
+            />
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Technologies and tools I use to transform data into actionable insights
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {skillCategories.map((category, index) => (
               <Card
                 key={index}
-                className="border-2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
+                className="group border border-border/50 backdrop-blur-sm bg-card/80 hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:border-primary/30 animate-fade-in-up relative overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className={`p-3 rounded-lg bg-primary/10 ${category.color}`}>
-                      <category.icon size={24} />
+                {/* Gradient Overlay on Hover */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity"
+                  style={{ background: "var(--gradient-hero)" }}
+                />
+
+                <CardContent className="p-6 relative z-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div 
+                      className="p-3 rounded-xl relative overflow-hidden group-hover:scale-110 transition-transform shadow-lg"
+                      style={{ background: "var(--gradient-hero)" }}
+                    >
+                      <category.icon size={24} className="text-primary-foreground relative z-10" />
                     </div>
-                    <h3 className="text-xl font-semibold">{category.title}</h3>
+                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                      {category.title}
+                    </h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 bg-secondary rounded-full text-sm font-medium"
+                        className="px-4 py-2 bg-secondary hover:bg-primary hover:text-primary-foreground rounded-full text-sm font-medium transition-all duration-300 cursor-default hover:scale-105 shadow-sm"
                       >
                         {skill}
                       </span>

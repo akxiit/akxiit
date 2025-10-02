@@ -86,20 +86,23 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Enhanced Profile Image with Modern Effects */}
+          {/* Enhanced Profile Image with Rectangular Mask */}
           <div className="relative animate-scale-in">
             {/* Glow Effect */}
             <div
-              className="absolute -inset-4 rounded-3xl blur-3xl opacity-20 animate-pulse-slow"
+              className="absolute -inset-4 rounded-lg blur-3xl opacity-20 animate-pulse-slow"
               style={{ background: "var(--gradient-hero)" }}
             />
             
-            {/* Decorative Rings */}
-            <div className="absolute -inset-8 border-2 border-primary/10 rounded-3xl animate-spin-slow" />
-            <div className="absolute -inset-12 border-2 border-accent/10 rounded-3xl animate-spin-slower" />
+            {/* Decorative Corners */}
+            <div className="absolute -inset-4 border-2 border-primary/20 rounded-lg" />
+            <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-primary rounded-tl-lg" />
+            <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-primary rounded-tr-lg" />
+            <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-accent rounded-bl-lg" />
+            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-accent rounded-br-lg" />
             
-            {/* Image Container with Glassmorphism */}
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] backdrop-blur-sm border border-white/10">
+            {/* Image Container with Rectangular Mask */}
+            <div className="relative rounded-lg overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] backdrop-blur-sm border border-white/10">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 mix-blend-overlay" />
               <img
                 src={profileImage}

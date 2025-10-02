@@ -10,13 +10,8 @@ const projects = [
       "End-to-end system for sales analysis, forecasting, and price optimization using Python and Power BI. Implemented predictive models to forecast demand and optimize pricing strategies.",
     tags: ["Python", "Power BI", "Forecasting", "Price Optimization"],
     gradient: "from-blue-500 to-purple-500",
-  },
-  {
-    title: "Product Recommendation System",
-    description:
-      "Built a recommendation engine using collaborative filtering and predictive modeling techniques. Developed personalized product suggestions to enhance user experience.",
-    tags: ["Machine Learning", "Collaborative Filtering", "Python", "Scikit-learn"],
-    gradient: "from-green-500 to-teal-500",
+    github: "https://github.com/akxiit/Blinkit-Sales-Analysis",
+    demo: "https://github.com/akxiit/Blinkit-Sales-Analysis",
   },
   {
     title: "Fake News Detection System",
@@ -24,6 +19,8 @@ const projects = [
       "Developed a model using NLP and supervised learning to classify news as real or fake. Achieved high accuracy in detecting misinformation through text analysis.",
     tags: ["NLP", "Supervised Learning", "Text Classification", "Python"],
     gradient: "from-orange-500 to-red-500",
+    github: "https://github.com/akxiit/Fake-News-Detector",
+    demo: "https://github.com/akxiit/Fake-News-Detector",
   },
 ];
 
@@ -97,17 +94,23 @@ const Projects = () => {
                     variant="outline" 
                     size="sm" 
                     className="flex-1 group-hover:border-primary group-hover:text-primary transition-colors"
+                    asChild
                   >
-                    <ExternalLink size={16} className="mr-2" />
-                    View
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink size={16} className="mr-2" />
+                      View
+                    </a>
                   </Button>
                   <Button 
                     variant="outline" 
                     size="sm" 
                     className="flex-1 group-hover:border-primary group-hover:text-primary transition-colors"
+                    asChild
                   >
-                    <Github size={16} className="mr-2" />
-                    Code
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github size={16} className="mr-2" />
+                      Code
+                    </a>
                   </Button>
                 </CardFooter>
               </Card>
